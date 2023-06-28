@@ -131,7 +131,7 @@ ImageLabel.BorderSizePixel = 0
 ImageLabel.Position = UDim2.new(0.0228774771, 0, 0, 0)
 ImageLabel.Size = UDim2.new(0.104219697, 0, 0.190522939, 0)
 ImageLabel.Image = "rbxassetid://2941043433"
-stop.MouseButtin1Click:Connect(function()
+stop.MouseButton1Click:Connect(function()
  yeeting = false
 end)
 
