@@ -16,7 +16,7 @@ credit to scuba kermit
 ]]
 
 local yeeting = false
-function GetPlayer(String)
+function BP_STR_GetPlayer(String)
 local Found = {}
 local strl = String:lower()
 if strl == "all" then
@@ -121,7 +121,7 @@ stop.BorderSizePixel = 0
 stop.Position = UDim2.new(0.513472319, 0, 0.722222269, 0)
 stop.Size = UDim2.new(0.453329861, 0, 0.177777782, 0)
 stop.Font = Enum.Font.SourceSans
-stop.Text = "Destroy GUI"
+stop.Text = "Stop Yeeting"
 stop.TextColor3 = Color3.new(1, 1, 1)
 stop.TextSize = 18
 ImageLabel.Parent = onetwoseventhree
@@ -132,10 +132,11 @@ ImageLabel.Position = UDim2.new(0.0228774771, 0, 0, 0)
 ImageLabel.Size = UDim2.new(0.104219697, 0, 0.190522939, 0)
 ImageLabel.Image = "rbxassetid://2941043433"
 stop.MouseButtin1Click:Connect(function()
- yeetguiv4:Destroy()
+ yeeting = false
 end)
+
 yeet.MouseButton1Click:Connect(function()
-    local target = unpack(GetPlayer(player.Text)).Character
+    local target = unpack(BP_STR_GetPlayer(player.Text)).Character
 
     MakePosition()
     wait(0.1)
@@ -144,16 +145,13 @@ yeet.MouseButton1Click:Connect(function()
     local coin = Instance.new('BodyThrust',lplayer.Character.HumanoidRootPart)
     coin.Force = Vector3.new(2590,2590,2590)
     coin.Name = "yeetforce"
-   local normalyeet = RunService.RenderStepped:Connect(function()
+    repeat wait()
       lplayer.Character.HumanoidRootPart.CFrame = target.Head.CFrame;coin.Location = target.Head.Position
+    until yeeting == false
 end)
-wait(0.5)
-normalyeet:Disconnect()
-lplayer.Character.Humanoid.PlatformStand = false
-BackToOldPosition()
-end)
+
 ultrayeet.MouseButton1Click:Connect(function()
-    local target = unpack(GetPlayer(player.Text)).Character
+    local target = unpack(BP_STR_GetPlayer(player.Text)).Character
 
     MakePosition()
     wait(0.1)
@@ -162,16 +160,13 @@ ultrayeet.MouseButton1Click:Connect(function()
     local coin = Instance.new('BodyThrust',lplayer.Character.HumanoidRootPart)
     coin.Force = Vector3.new(9999,9999,9999)
     coin.Name = "yeetforce"
-    local ultyeet = RunService.RenderStepped:Connect(function()
+    repeat wait()
           lplayer.Character.HumanoidRootPart.CFrame = target.Head.CFrame;coin.Location = target.Head.Position
+  until yeeting == false
 end)
-wait(0.5)
-ultyeet:Disconnect()
-lplayer.Character.Humanoid.PlatformStand = false
-BackToOldPosition()
-end)
+
 supernovayeet.MouseButton1Click:Connect(function()
-    local target = unpack(GetPlayer(player.Text)).Character
+    local target = unpack(BP_STR_GetPlayer(player.Text)).Character
 
     MakePosition()
     wait(0.1)
@@ -180,13 +175,9 @@ supernovayeet.MouseButton1Click:Connect(function()
     local coin = Instance.new('BodyThrust',lplayer.Character.HumanoidRootPart)
     coin.Force = Vector3.new(18000,18000,18000)
     coin.Name = "yeetforce"
-    local novayeet = RunService.RenderStepped:Connect(function()
+    repeat wait()
           lplayer.Character.HumanoidRootPart.CFrame = target.Head.CFrame;coin.Location = target.Head.Position
-end)
-wait(0.5)
-novayeet:Disconnect()
-lplayer.Character.Humanoid.PlatformStand = false
-BackToOldPosition()
+  until yeeting == false
 end)
  
 local UIS = game:GetService("UserInputService")
